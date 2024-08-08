@@ -1,9 +1,10 @@
 import { Router } from 'express';
-import { createDoctor } from '../controller/doctorController';
+import { createDoctorHandler, getDoctorHandler } from '../controller/doctorController';
 
 
 const router = Router();
 
-router.post('/', createDoctor);
+router.post('/create', createDoctorHandler);
+router.get('/getByPhoneNumber/:id', getDoctorHandler);
 
 export default router;
