@@ -24,3 +24,28 @@ export const getDoctorByPhoneNumber = async(phoneNumber: string) => {
 
   }
 }
+
+export const updateDoctor = async(phoneNumber: any, doctor: any) =>{
+  try{
+
+    return await Doctor.findOneAndUpdate({ phoneNumber }, doctor, { new: true});
+
+  }catch(err){
+
+        throw new Error('Failed');
+
+  }
+}
+
+export const deleteDoctor = async(email: string) =>{
+
+  try{
+
+return await Doctor.findOneAndDelete({ email });
+
+  }catch(err){
+
+        throw new Error('Failed');
+
+  }
+}

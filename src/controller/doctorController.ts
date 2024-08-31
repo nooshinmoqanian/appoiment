@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { createDoctor, getDoctorByPhoneNumber } from '../service/doctorService';
+import { createDoctor, deleteDoctor, getDoctorByPhoneNumber, updateDoctor } from '../service/doctorService';
 
 //CRUD
 export const createDoctorHandler = async (req: Request, res: Response) => {
@@ -34,8 +34,8 @@ export const getDoctorHandler = async (req: Request, res: Response) => {
    
       res.status(500).json({ error: 'failed' })
   }
-
-  /*export const updateDoctorHandler = async (req: Request, res: Response) => {
+}
+ export const updateDoctorHandler = async (req: Request, res: Response) => {
     try {
         const updatedDoctor = await updateDoctor(req.params.id, req.body);
         if (updatedDoctor) {
@@ -59,5 +59,4 @@ export const deleteDoctorHandler = async (req: Request, res: Response) => {
   } catch (err) {
       res.status(500).json({ error: 'Failed to delete doctor' });
   }
-};*/
-}
+};
