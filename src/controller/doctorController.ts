@@ -1,7 +1,28 @@
 import { Request, Response } from 'express';
-import { createDoctor, deleteDoctor, getDoctorByPhoneNumber, updateDoctor } from '../service/doctorService';
+import { createDoctor, deleteDoctor, getDoctorByPhoneNumber, updateDoctor, getAllDoctor } from '../service/doctorService';
 
 //CRUD
+
+export const getAllDoctorHandler = async (req: Request, res: Response) => {
+ 
+    try{
+      const resultDoctor = await getAllDoctor();
+  
+      if(resultDoctor){
+  
+            res.status(200).json(resultDoctor)
+      } else {
+  
+        res.status(404).json({ error: "Doctor Not Found" })
+  
+      }
+  
+    }catch(err){
+     
+        res.status(500).json({ error: 'failed' })
+    }
+  }
+
 export const createDoctorHandler = async (req: Request, res: Response) => {
  
     try{

@@ -1,12 +1,22 @@
-import { Schema, model } from 'mongoose';
+import mongoose, { Schema, Document } from 'mongoose';
 
-const doctorSchema = new Schema({
+
+  interface IDoctor extends Document {
+    name: string;
+    email: string;
+    password: string;
+    specialty: string;
+    licenseNumber: string;
+  }
+
+const DoctorSchema: Schema = new Schema({
   name: { type: String, required: true },
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
   specialty: { type: String, required: true },
-  phoneNumber: { type: String, required: true },
-  email: { type: String, required: true }
+  licenseNumber: { type: String, required: true, unique: true }
 });
 
-const Doctor = model('Doctor', doctorSchema);
-
+const Doctor = mongoose.model<IDoctor>('Doctor', DoctorSchema);
 export default Doctor;
+

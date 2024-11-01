@@ -1,4 +1,21 @@
+import { DoctorDto } from "../Dto/doctorDto";
 import Doctor from "../models/doctor";
+ 
+
+export const getAllDoctor = async() => {
+
+  try{
+
+    const dr =  await Doctor.find({},{ name: 1, specialty: 1 });
+    
+    console.log(dr)
+     return dr
+  }catch(err){
+
+        throw new Error('Failed');
+
+  }
+}
 
 export const createDoctor = async (doctor: any) => {
     try{
@@ -25,7 +42,7 @@ export const getDoctorByPhoneNumber = async(phoneNumber: string) => {
   }
 }
 
-export const updateDoctor = async(phoneNumber: any, doctor: any) =>{
+export const updateDoctor = async(phoneNumber: any, doctor: DoctorDto) =>{
   try{
 
     return await Doctor.findOneAndUpdate({ phoneNumber }, doctor, { new: true});

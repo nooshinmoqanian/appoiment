@@ -13,15 +13,26 @@
   "license": "ISC",
   "dependencies": {
     "@types/express": "^4.17.21",
+    "bcryptjs": "^2.4.3",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "express-validator": "^7.2.0",
+    "jsonwebtoken": "^9.0.2", 
     "mongoose": "^8.5.1",
     "ts-node": "^10.9.2"
   },
-    "nodemonConfig": {
-    "watch": ["src"],
+  "nodemonConfig": {
+    "watch": [
+      "src"
+    ],
     "ext": "ts",
-    "ignore": ["src/**/*.spec.ts"],
+    "ignore": [
+      "src/**/*.spec.ts"
+    ],
     "exec": "ts-node src/server.ts"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.7"
   }
 }

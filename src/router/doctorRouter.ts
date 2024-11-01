@@ -1,8 +1,10 @@
 import { Router } from 'express';
-import { createDoctorHandler, getDoctorHandler, updateDoctorHandler, deleteDoctorHandler } from '../controller/doctorController';
+import { createDoctorHandler, getDoctorHandler, updateDoctorHandler, deleteDoctorHandler, getAllDoctorHandler } from '../controller/doctorController';
 
 
 const router = Router();
+
+router.get('/getAll', getAllDoctorHandler);
 
 router.post('/create', createDoctorHandler);
 router.get('/getByPhoneNumber/:id', getDoctorHandler);
