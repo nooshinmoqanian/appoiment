@@ -1,7 +1,7 @@
-export interface DoctorDto extends Document {
-    name: string;
-    specialization: string;
-    phoneNumber: string;
-    email: string;
-    password: string; 
+export class DoctorDto {
+    name: string | undefined;
+    specialization: string | undefined;
+    phoneNumber: string | undefined;
+    email: string | undefined;
+    password: string | undefined; 
   }
