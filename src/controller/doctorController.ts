@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { createDoctor, deleteDoctor, getDoctorByPhoneNumber, updateDoctor, getAllDoctor } from '../service/doctorService';
+import { DoctorDto } from '../Dto/doctorDto';
 
 //CRUD
 
@@ -26,7 +27,10 @@ export const getAllDoctorHandler = async (req: Request, res: Response) => {
 export const createDoctorHandler = async (req: Request, res: Response) => {
  
     try{
-      const newDoctor = await createDoctor(req.body);
+      const drDto : DoctorDto = req.body;
+      
+      const newDoctor = await createDoctor(drDto);
+      console.log(newDoctor);
       res.status(201).json(newDoctor)
 
     }catch(err){

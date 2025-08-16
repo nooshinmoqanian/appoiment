@@ -21,11 +21,13 @@ export const createDoctor = async (doctor: any) => {
     try{
 
       const newDoctor = new Doctor(doctor);
-      await newDoctor.save();
+      console.log(newDoctor);
+      const a = await newDoctor.save();
+      console.log(a);
       return newDoctor;
       
     }catch(err){
-        
+        console.log(err);
         throw new Error('Failed to create doctor');
     }
   }
